@@ -9,6 +9,8 @@ Nosefart runs in a variety of environments:
 
 ## Standalone player in Linux: command-line
 
+![Nosefart commandline screenshot](https://github.com/straitm/nosefart/raw/master/nf-cli-screenshot.png "Beautiful")
+
 The primary target.
 
 Nosefart does not play nicely with the way some Linux systems handle
@@ -23,6 +25,8 @@ a pull request with the solution.
 
 ## Standalone player in Linux: graphical
 
+![Nosefart GTK screenshot](https://github.com/straitm/nosefart/raw/master/nf-gtk-screenshot.png "Hacky")
+
 A front-end to the command line program, with all the fragility that entails.
 Works, though.
 
@@ -33,6 +37,8 @@ found in the source package.
 
 ## XMMS plugin
 
+![Nosefart Winamp screenshot](https://github.com/straitm/nosefart/raw/master/nf-winamp-screenshot.jpg  "Does anyone still use Winamp?")
+
 Contributed by Benjamin Gerard <ben AT sashipa DOT com>.
 
 ## Winamp plugin
@@ -42,8 +48,10 @@ your Winamp plugins directory. It's also in the source package.
 
 ## CL-amp plugin
 
-Contributed and possibly maintained by Eli Dayan. You can install it from the
-CL-amp package. It can also be found on Eli's page or in the source package.
+![Nosefart Cl-amp screenshot](https://github.com/straitm/nosefart/raw/master/nf-clamp-screenshot.png "This is an obscure one")
+
+Contributed by Eli Dayan. You can install it from the CL-amp package. It can
+also be found on Eli's page or in the source package.
 
 ## Other
 
