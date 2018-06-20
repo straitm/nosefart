@@ -47,7 +47,8 @@ extern gchar * filename, * oldfilename;
 
 extern GtkWidget * nferror;
 
-#define NEEDNFVERSION "2.2"
+// This means 2.2
+#define NEEDNFVERSION "22"
 
 // only ever run once
 void gnosefart_init(int argc, char ** argv)
@@ -57,7 +58,7 @@ void gnosefart_init(int argc, char ** argv)
 	   Note that the version line does string comparison, not numerical comparison. 
 	   (Numerical comparison does integers only.) */
 	if(!system("nosefart &> /dev/stdout | grep \"command not found\"") ||
-	   !system("[[ \"`nosefart -v | grep -i Version | cut -d\\  -f 2 | cut -d- -f 1`\" < \"" NEEDNFVERSION "\" ]]"))
+	   !system("[ \"`nosefart -v | grep -i Version | cut -d\\  -f 2 | cut -d- -f 1 | sed 's/\\.//' `\" -lt \"" NEEDNFVERSION "\" ]"))
 	{
 		nferror = create_nonosefart_error();
 		gtk_widget_show(nferror);		
