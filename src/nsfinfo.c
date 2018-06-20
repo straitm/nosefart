@@ -341,7 +341,7 @@ static unsigned int nsf_calc_time(nsf_t * src,
 	  
           if (frame_frag >= max_frag) 
           {
-	    msg("\nnsfinfo : unable to find end of music within %u frames, giving up!\n", max_frag);
+	    msg("\nnsfinfo: unable to find total length of music in %u frames, giving up!\n", max_frag);
 	    goto error;
 	  }
 	} 
@@ -405,7 +405,7 @@ static unsigned int nsf_calc_time(nsf_t * src,
 	  
           if (frame_frag >= max_frag) 
           {
-	    msg("\nnsfinfo : unable to find end of music within %u frames\n\tgiving up!", max_frag);
+	    msg("\nnsfinfo: unable to find length of music without intro in %u frames, giving up!\n", max_frag);
 	    goto error;
 	  }
 	} 
@@ -426,9 +426,9 @@ static unsigned int nsf_calc_time(nsf_t * src,
 	return (result1 * 0x1000 + result2);
 
  error:
-  nsf_free(&nsf);
-  fprintf(stderr, "Error with time calculation, bailing out!\n");
-  return 0x00000001; /* something small, but non-zero (zero means unlimited) */
+  /* Use the first result if available, and make sure if we're clueless that
+    the result is small, but non-zero (zero means unlimited) */
+  return result1 * 0x1000 + 1000;
 }
 
 
