@@ -1,0 +1,10 @@
+To compile nosefart for linux, run "make" in the top of the source tree.
+
+To install, switch to root, and run "make install"
+
+To uninstall, switch to root, and run "make uninstall"
+
+If you want to be able access /dev/dsp as an ordinary user,
+nosefart may need to be suid root. To set that, run "chmod +s 
+/usr/local/bin/nosefart" as root. Don't do that unless
+you trust your users, because nosefart isn't secure yet.

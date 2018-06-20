@@ -1,0 +1,8 @@
+# KDE Config File
+[KDE Desktop Entry]
+MimeType=audio/x-nsf
+Comment=NSF file
+DefaultApp=
+Icon=sound.xpm
+Type=MimeType
+Patterns=*.nsf;*.NSF;

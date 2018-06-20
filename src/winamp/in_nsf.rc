@@ -1,0 +1,241 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUT DIALOG DISCARDABLE  0, 0, 260, 223
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Nosefart"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         102,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,15,17,65,
+                    21
+    DEFPUSHBUTTON   "&Close",IDCLOSE,99,202,65,16
+    PUSHBUTTON      "&nosefart home page",IDC_WWWNOFRENDO,150,21,93,14
+    GROUPBOX        "",IDC_STATIC,7,7,246,39
+    CTEXT           "A Nintendo® Entertainment System music player plugin",
+                    IDC_STATIC,7,75,246,8
+    LTEXT           "for Winamp 2.x and 5.x",IDC_STATIC,89,86,74,8
+    LTEXT           "Copyright © 2000 Matthew Conte",IDC_STATIC,21,134,106,8
+    LTEXT           "With contributions from:",IDC_STATIC,21,158,75,8
+    LTEXT           "Matthew Strait <quadong@users.sf.net>   (2002-2004)",
+                    IDC_STATIC,45,169,172,8
+    LTEXT           "K`rai  (2004)",IDC_STATIC,45,181,39,8
+    LTEXT           "Licensed under the GNU GPL version 2",IDC_STATIC,67,103,
+                    126,8
+    LTEXT           "http://nosefart.sourceforge.net/",IDC_STATIC,80,50,102,
+                    8
+END
+
+IDD_CONFIG DIALOG DISCARDABLE  0, 0, 166, 165
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Nosefart Configuration"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "16-bit ",IDC_16BIT,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,13,49,35,10
+    CONTROL         "8-bit",IDC_8BIT,"Button",BS_AUTORADIOBUTTON,13,61,29,10
+    DEFPUSHBUTTON   "&OK",IDOK,109,111,50,14
+    PUSHBUTTON      "&Default",IDC_DEF,109,127,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,109,143,50,14
+    GROUPBOX        "&Frequency",IDC_STATIC,7,7,73,29
+    GROUPBOX        "&Quality",IDC_STATIC,7,39,73,37
+    GROUPBOX        "Channels &Enabled",IDC_STATIC,85,7,74,86
+    CONTROL         "Square 1",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,92,17,62,12
+    CONTROL         "Square 2",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,92,29,62,12
+    CONTROL         "Triangle",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,92,41,62,12
+    CONTROL         "Noise",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    92,54,62,12
+    CONTROL         "DPCM",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    92,65,62,12
+    CONTROL         "External Input",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,92,77,62,12
+    COMBOBOX        IDC_FREQ,13,18,60,64,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "&Thread Priority",IDC_STATIC,7,127,93,30
+    COMBOBOX        IDC_THREAD,13,137,80,65,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    GROUPBOX        "F&ilter Level",IDC_STATIC,7,91,90,32,WS_TABSTOP
+    COMBOBOX        IDC_DSP,13,103,77,72,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+IDD_INFO DIALOG DISCARDABLE  0, 0, 202, 143
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "NSF info"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,75,122,50,14
+    LTEXT           "Song Name:",IDC_STATIC,10,5,40,8
+    LTEXT           "Author Name:",IDC_STATIC,10,20,44,8
+    LTEXT           "Copyright:",IDC_STATIC,10,35,32,8
+    LTEXT           "Total Songs:",IDC_STATIC,10,50,41,8
+    CTEXT           "Static",IDC_TEXT1,69,5,126,10,SS_SUNKEN
+    CTEXT           "Static",IDC_TEXT2,69,20,126,10,SS_SUNKEN
+    CTEXT           "Static",IDC_TEXT3,69,35,126,10,SS_SUNKEN
+    CTEXT           "Static",IDC_TEXT4,69,50,126,10,SS_SUNKEN
+    LTEXT           "Playback Rate:",IDC_STATIC,10,65,50,8
+    CTEXT           "Static",IDC_TEXT5,69,65,126,10,SS_SUNKEN
+    CTEXT           "Static",IDC_TEXT6,69,80,126,10,SS_SUNKEN
+    CTEXT           "Static",IDC_TEXT7,69,95,126,10,SS_SUNKEN
+    CTEXT           "Static",IDC_TEXT8,69,110,126,10,SS_SUNKEN
+    LTEXT           "Load Address:",IDC_STATIC,9,81,46,8
+    LTEXT           "Init Address:",IDC_STATIC,10,95,40,8
+    LTEXT           "Play Address:",IDC_STATIC,10,111,44,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 253
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 218
+    END
+
+    IDD_CONFIG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 159
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 158
+    END
+
+    IDD_INFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 195
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 136
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_Nosefart            BITMAP  DISCARDABLE     "nosefart.bmp"
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,3,0,0
+ PRODUCTVERSION 2,3,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "Distributed under the GNU GPL.  http://nosefart.sourceforge.net\0"
+            VALUE "CompanyName", " \0"
+            VALUE "FileDescription", "in_nsf\0"
+            VALUE "FileVersion", "2, 2, 0, 0\0"
+            VALUE "InternalName", "in_nsf\0"
+            VALUE "LegalCopyright", "Copyright © 2004 Matt Conte\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "in_nsf.dll\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "  in_nsf\0"
+            VALUE "ProductVersion", "2, 2, 0, 0\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,14 @@
+This is a GTK frontend to nosefart.  You need nosefart installed
+for this to run.
+
+To build:
+
+./configure
+make
+
+To install:
+make install
+
+For configuration options, say
+
+./configure --help

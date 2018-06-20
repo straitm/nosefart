@@ -1,0 +1,13 @@
+# KDE Config File
+[KDE Desktop Entry]
+SwallowExec=
+SwallowTitle=
+BinaryPattern=nosefart;
+Name=Nosefart
+MimeType=audio/x-nsf;
+Exec=nosefart -f 44100 %f
+TerminalOptions=
+Icon=exec.xpm
+Path=
+Type=Application
+Terminal=1

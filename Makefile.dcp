@@ -1,0 +1,40 @@
+LIBRARY := yes
+SRCDIR := src
+
+#LEZ=yes
+#LEF_EXTRA := $(foreach dir,$(SUBDIRS),$(dir)/lib$(dir).a) 
+
+#ELFS=$(shell basename `pwd`).elf
+#ELF_EXTRA := $(foreach dir,$(SUBDIRS),$(dir)/lib$(dir).a)
+
+
+FILES = log\
+ memguard\
+ cpu/nes6502/nes6502\
+ cpu/nes6502/dis6502\
+ machine/nsf\
+ sndhrdw/nes_apu\
+ sndhrdw/vrcvisnd\
+ sndhrdw/fmopl\
+ sndhrdw/vrc7_snd\
+ sndhrdw/mmc5_snd\
+ sndhrdw/fds_snd
+ 
+# linux/main_linu
+
+KOS_LOCAL_CFLAGS := -DHOST_LITTLE_ENDIAN -DDCPLAYA=1 -DNSF_PLAYER=1
+
+OBJS := $(addprefix $(SRCDIR)/,$(addsuffix .o, $(FILES)))
+
+KOS_LOCAL_INCS := -I../../../include\
+ -I$(SRCDIR)\
+ -I$(SRCDIR)/linux\
+ -I$(SRCDIR)/sndhrdw\
+ -I$(SRCDIR)/machine\
+ -I$(SRCDIR)/cpu/nes6502
+
+# -I$(BUILDDIR)
+
+OPTIMIZE = $(OPTIMIZE_FOR_SPEED)
+
+include ../../../../Makefile.inc

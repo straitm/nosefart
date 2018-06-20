@@ -1,0 +1,8 @@
+gnosefart is a (Linux, GTK2) graphical frontend to nosefart written
+by Matthew Strait <quadong@users.sf.net>.
+
+To compile gnosefart, run "./configure && make" in src/gnosefart
+
+To install, switch to root, and run "make install"
+
+To uninstall, switch to root, and run "make uninstall"

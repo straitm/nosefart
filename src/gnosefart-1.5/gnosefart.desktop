@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Nosefart
+GenericName=NSF Music Player
+Comment=Nosefart - NSF Music Player 
+Icon=gnosefart.png
+Exec=/usr/bin/gnosefart %f
+Terminal=false
+Type=Application
+X-Desktop-File-Install-Version=0.3
+Categories=Application;AudioVideo;X-Red-Hat-Extra;
+

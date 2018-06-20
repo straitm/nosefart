@@ -1,0 +1,73 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: in_nsf - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo".\Release/in_nsf.res" /i "src\winamp" /d "NDEBUG" "E:\nosefart-2.3-mls\src\winamp\in_nsf.rc"" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP7395.TMP" with contents
+[
+/nologo /ML /W3 /O2 /I "src" /I "src\cpu\nes6502" /I "src\machine" /I "src\sndhrdw" /I "src\winamp" /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "LITTLE_ENDIAN" /D "NSF_PLAYER" /Fo".\Release/" /Fd".\Release/" /FD /c 
+"E:\nosefart-2.3-mls\src\cpu\nes6502\dis6502.c"
+"E:\nosefart-2.3-mls\src\cpu\nes6502\nes6502.c"
+"E:\nosefart-2.3-mls\src\machine\nsf.c"
+"E:\nosefart-2.3-mls\src\sndhrdw\fds_snd.c"
+"E:\nosefart-2.3-mls\src\sndhrdw\fmopl.c"
+"E:\nosefart-2.3-mls\src\sndhrdw\mmc5_snd.c"
+"E:\nosefart-2.3-mls\src\sndhrdw\nes_apu.c"
+"E:\nosefart-2.3-mls\src\sndhrdw\vrc7_snd.c"
+"E:\nosefart-2.3-mls\src\sndhrdw\vrcvisnd.c"
+"E:\nosefart-2.3-mls\src\log.c"
+"E:\nosefart-2.3-mls\src\memguard.c"
+"E:\nosefart-2.3-mls\src\winamp\in_nsf.c"
+]
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP7395.TMP" 
+Creating temporary file "C:\WINDOWS\TEMP\RSP7396.TMP" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib msvcrt.lib /nologo /subsystem:windows /dll /incremental:no /pdb:".\Release/in_nsf.pdb" /machine:I386 /nodefaultlib /out:"in_nsf.dll" /implib:".\Release/in_nsf.lib" 
+".\Release\dis6502.obj"
+".\Release\nes6502.obj"
+".\Release\nsf.obj"
+".\Release\fds_snd.obj"
+".\Release\fmopl.obj"
+".\Release\mmc5_snd.obj"
+".\Release\nes_apu.obj"
+".\Release\vrc7_snd.obj"
+".\Release\vrcvisnd.obj"
+".\Release\log.obj"
+".\Release\memguard.obj"
+".\Release\in_nsf.obj"
+".\Release\in_nsf.res"
+]
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSP7396.TMP"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+dis6502.c
+nes6502.c
+nsf.c
+fds_snd.c
+fmopl.c
+E:\nosefart-2.3-mls\src\sndhrdw\fmopl.c(631) : warning C4244: 'function' : conversion from 'double ' to 'int ', possible loss of data
+E:\nosefart-2.3-mls\src\sndhrdw\fmopl.c(666) : warning C4244: 'function' : conversion from 'double ' to 'float ', possible loss of data
+mmc5_snd.c
+nes_apu.c
+vrc7_snd.c
+vrcvisnd.c
+log.c
+memguard.c
+in_nsf.c
+Generating Code...
+E:\nosefart-2.3-mls\src\sndhrdw\fmopl.c(631) : warning C4761: integral size mismatch in argument; conversion supplied
+Linking...
+   Creating library .\Release/in_nsf.lib and object .\Release/in_nsf.exp
+
+
+
+<h3>Results</h3>
+in_nsf.dll - 0 error(s), 3 warning(s)
+</pre>
+</body>
+</html>

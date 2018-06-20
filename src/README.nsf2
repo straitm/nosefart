@@ -1,0 +1,114 @@
+Please see the comments at the top of nsfinfo.c before reading this file.
+-Matthew Strait
+
+************************************************************************
+
+                          NSF format spec version 2
+
+                    by Benjamin Gerard <ben@sashipa.com>
+
+                                 2003/04/25
+
+
+Abstract:
+
+   This document describes the NSF (Nintendo Sound Format) version 2 file.
+   It explains why I have made a new version of this format. The information
+   on the NSF1 file format comes from nsfspec.txt by Kevin Horton
+   <khorton@iquest.net>.
+
+Introduction:
+
+    NSF version 1 format was a rigid format. As I want to add play time
+    information precalculated for each songs in the file, I have to modify
+    the current file format. By the way, I have tried to make a more
+    flexible format so that people can add other information in NSF files
+    (like date, ripper ...). Others improvements has been added and will be
+    explain in this documentation.
+
+Portability:
+
+    The NSF2 should be backward compatible with NSF1. This means that old
+    NSF player should be able to load NSF2 files (without extra
+    information).  Obviously NSF2 file loader is able to load either NSF1 or
+    NSF2 files. NSF2 loader can skip unknown additional information, so any
+    additional information can be added to NSF2 file as soon it respect the
+    format definition.
+
+NSF1 file format:
+
+    NSF1 file format starts with a 128 bytes header which is followed by
+    song data. The length of the data must be determined by the file length.
+    This can be a problem if you want to play NSF file thru file transfer
+    protocol that does not handle stream length.
+
+    Multi byte values are stored in little endian (LSB first).
+    BYTE : 1 byte unsigned (0..255)
+    WORD : 2 bytes unsigned (0..65536)
+    LONG : 4 bytes unsigned (0..2^32-1)
+
+    NSF1 header overview:
+
+    Offset  Size  Type   Description
+
+    0000     5   STRING  "NESM",01Ah  ; denotes an NES sound format file
+    0005     1   BYTE    Version number (currently 01h)
+    0006     1   BYTE    Total songs   (1=1 song, 2=2 songs, etc)
+    0007     1   BYTE    Starting song (1= 1st song, 2=2nd song, etc)
+    0008     2   WORD    (lo/hi) load address of data (8000-FFFF)
+    000a     2   WORD    (lo/hi) init address of data (8000-FFFF)
+    000c     2   WORD    (lo/hi) play address of data (8000-FFFF)
+    000e     32  STRING  The name of the song, null terminated
+    002e     32  STRING  The artist, if known, null terminated
+    004e     32  STRING  The Copyright holder, null terminated
+    006e     2   WORD    (lo/hi) speed, in 1/1000000th sec ticks, NTSC
+    0070     8   BYTE    Bankswitch Init Values (see text, and FDS section)
+    0078     2   WORD    (lo/hi) speed, in 1/1000000th sec ticks, PAL
+    007a     1   BYTE    PAL/NTSC bits:
+                 bit 0: if clear, this is an NTSC tune
+                 bit 0: if set, this is a PAL tune
+                 bit 1: if set, this is a dual PAL/NTSC tune
+                 bits 2-7: not used. they *must* be 0
+    007b    1   BYTE    Extra Sound Chip Support
+                 bit 0: if set, this song uses VRCVI
+                 bit 1: if set, this song uses VRCVII
+                 bit 2: if set, this song uses FDS Sound
+                 bit 3: if set, this song uses MMC5 audio
+                 bit 4: if set, this song uses Namco 106
+                 bit 5: if set, this song uses Sunsoft FME-07
+                 bits 6,7: future expansion: they *must* be 0
+    007c    4   ----    4 extra bytes for expansion (must be 00h)
+    0080    nnn ----    The music program/data follows
+
+NSF2 file format:
+
+    NSF2 file format starts with the same header than NSF1 excepted that
+    the version number (offset 5) is set to 2 and that the 3 first bytes of
+    reserved contains the length in bytes of the data section (stored as a
+    LONG but without the MSB which is reserved for future used and must be
+    set to 0).
+
+    At the end of the data section, the file may contain extra information
+    stored within chunks.
+
+    Extra Chunk format:
+
+    Offset  Size  Type   Description
+
+    0000       4  STRING "NESM" ; denotes an extension.
+    0004       4  STRING TYPE   ; type of extension.
+    0008       4  LONG   SIZE   ; Extension total size (including this header)
+    000C  SIZE-12               ; Extension data (depends on TYPE)
+
+    The number of extra format chunk is unlimited. The loader can skip unknown
+    TYPE because it knows its size.
+
+    Currently only one TYPE has been defined : "TIME". It handles songs
+    playing time. The data of "TIME" chunk is an array of LONG which values
+    give the song length in frames. The first LONG gives the total number of
+    frame for all songs. In most case the size of the array is number of
+    songs + 1. But the current loader is able to load less or more entry.
+    In case there is less entry than the number of song, the missing entries
+    are set to zero, which mean no time info for this song.
+
+

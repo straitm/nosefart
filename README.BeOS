@@ -1,0 +1,38 @@
+nosefart
+version 1.92
+for BeOS R5 x86
+December 24. 2001
+
+author: 	Eli Dayan
+website: 	http://www.vectorstar.net/~scanty/nosefart
+e-mail:		delta@optonline.net.NOSPAM
+
+
+*NOTE* 
+This release should be considered beta software at best.  It has only been
+tested on my own machine, but works just fine, as far as I can tell.  If you
+find any bugs or have any problems, please let me know so that I can fix them!
+
+
+What's this?
+
+nosefart is a freeware portable Nintendo Sound Format (NSF) player,
+originally written by Matthew Conte.  I have built a CL-Amp plugin around
+Matt's sources so that BeOS users can enjoy listening to tunes from their
+favourite NES games.
+
+How do I use it?
+
+Move or copy src/cl-amp/in_nosefart to your CL-Amp plugins directory.  
+
+Get yourself some nsf files from a place like http://www.zophar.net/nsf/
+
+Load the nsf file in CL-Amp just as you would any other type of audio.  
+You should hear some nice music.  Please note, a configuration file for
+nosefart will be created in /boot/home/config/settings I do *not*
+recommend you edit this file by hand.
+
+If you like to compile things, you can download the sources separately
+from my homepage, or BeBits.
+
+Enjoy.

@@ -1,0 +1,24 @@
+                            nosefart xmms plugin
+
+                    by benjamin gerard <ben@sashipa.com>
+
+                                 2003/05/02
+
+                       xmms input plugin for nosefart
+                 an NSF (nintendo famiom sound file) player
+
+Requirements:
+
+    xmms must be installed with header files.
+    Check xmms website <http://www.xmms.org>.
+
+Quick installation:
+
+    - Go to the nosefart xmms top dir (where this file should be).
+    - Configure the package : `./configure'
+      For more information try `./configure --help'
+    - Build the plugin : `make'
+    - Install the plugin : `make install'. You may have to be root for
+      installing the files.
+
+More information in INSTALL file.

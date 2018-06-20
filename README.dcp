@@ -1,0 +1,19 @@
+                                 README.dcp
+
+                      benjamin gerard <ben@sashipa.com>
+
+                                 2003/05/02
+
+
+How to compile nosefart for dcplaya ?
+
+- Copy nosefart source tree into the `dcplaya/plugins/inp/nsf' directory.
+- Edit the Makefile in this directory and set NFS_DIR value.
+- Run `make' from this directory.
+
+dcplaya Makefile will compile nosefart project by using Makefile.dcp file in
+the nosefart top directory. This makefile will produce a static library in
+the nosefart top directory. The dcplaya nsf plugin will link this library.
+
+dcplaya web site: http://sashipa.ben.free.fr/dcplaya
+

@@ -1,0 +1,51 @@
+1.4 - 22 Sept 2005
+
+Now handles spaces in filenames (how embarrassing that it didn't!).
+
+Handles bad files more gracefully.
+
+1.3 - 20 Sept 2005
+
+The file selection dialog now remember what directory you used in the
+last session (using ~/.gnosefart).
+
+If esd (or something else) is blocking the sound card, it now pops up 
+an error rather than just hanging.
+
+1.2 - 13 Sept 2005
+
+Default changed to 2 repetitions (from forever).
+
+New version of GTK (I think) causes line breaks in the status bar
+to not work.  "Fixed" by restricting output to one line.  This
+removes some of the interesting information, but I don't have the
+energy to code a better fix.
+
+1.1 - ?? May 2004
+
+File selection behavior improved.
+
+Song info is now displayed.
+
+Other minor fixes.
+
+
+1.0 - 23 Apr 2004 
+
+Now reads from the backend and displays the number of tracks, the
+current time and the total time.
+
+Improved behavior of spinbuttons.
+
+Help and About can be brought up multiple times now.
+
+The main window is no longer resizable.
+
+Recognizes when it can't play and complains.
+
+Adds itself to the system menu, at least in Redhat 9.
+
+
+0.9 - 16 Apr 2004
+
+Initial release.

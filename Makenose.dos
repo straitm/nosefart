@@ -1,0 +1,110 @@
+#
+# nosefart makefile
+#
+# $Id: Makenose.dos,v 1.1 2003/04/08 20:46:46 ben Exp $
+
+NSF_EXE = nosefart.exe
+NSF_DEP = _nsfdep
+
+# uncomment to build a debug version
+DEBUG = 1
+
+
+ifdef DEBUG
+# debug version
+DEBUGFLAGS = -DOSD_LOG -DNOFRENDO_DEBUG -DNES6502_DEBUG
+OPTFLAGS =
+else
+# release version
+DEBUGFLAGS =
+OPTFLAGS = -O3 -fomit-frame-pointer -fno-exceptions 
+endif
+
+
+BUILDFLAGS = -DDJGPP_USE_NEARPTR -DNSF_PLAYER
+WARNFLAGS = -W -Wall -Werror -Wno-unused
+CFLAGS = -Isrc -Isrc/msdos -Isrc/sndhrdw -Isrc/machine -Isrc/cpu/nes6502 -march=i586 \
+	-ffast-math $(OPTFLAGS) $(WARNFLAGS) $(BUILDFLAGS) $(DEBUGFLAGS)
+LFLAGS =
+
+COREOBJ	= nsfobj/log.o nsfobj/memguard.o
+CPUOBJ	= nsfobj/cpu/nes6502/nes6502.o nsfobj/cpu/nes6502/dis6502.o
+MACHOBJ	= nsfobj/machine/nsf.o
+SNDOBJ	= nsfobj/sndhrdw/nes_apu.o nsfobj/sndhrdw/vrcvisnd.o nsfobj/sndhrdw/fmopl.o \
+	nsfobj/sndhrdw/vrc7_snd.o nsfobj/sndhrdw/mmc5_snd.o nsfobj/sndhrdw/fds_snd.o
+
+DOSOBJ	= nsfobj/msdos/dos_sb.o nsfobj/msdos/dostimer.o nsfobj/msdos/hercules.o \
+	nsfobj/msdos/main_dos.o
+
+NSF_OBJ	= $(COREOBJ) $(CPUOBJ) $(MACHOBJ) $(SNDOBJ) $(DOSOBJ)
+NSF_SRC	= $(subst nsfobj,src,$(NSF_OBJ:.o=.c))
+
+
+#
+# make rules
+#
+
+# check to see if we need to build the obj tree
+ifeq ($(wildcard ./nsfobj),)
+noobj: maketree all
+endif
+
+all:	default
+
+default: $(NSF_EXE)
+
+$(NSF_EXE): $(NSF_OBJ) Makenose.dos $(NSF_DEP)
+	$(CC) $(LFLAGS) -o $(NSF_EXE) $(NSF_OBJ) $(LIBS)
+
+#
+# phony targets
+#
+
+.PHONY: clean
+clean:
+	deltree /Y nsfobj
+	rm -f $(NSF_DEP) $(NSF_EXE) errorlog.txt
+
+.PHONY: realclean
+realclean: clean
+	rm -f *.opt *.ncb
+
+# for visual C++
+.PHONY: rebuildall
+rebuildall: clean maketree depend $(NSF_EXE)
+
+# build the dependency data
+.PHONY: depend
+$(NSF_DEP):
+	$(CC) $(CFLAGS) -MM $(NSF_SRC) > $(NSF_DEP)
+
+depend:
+	$(CC) $(CFLAGS) -MM $(NSF_SRC) > $(NSF_DEP)
+
+nsfobj/%.o: src/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+maketree:
+	md nsfobj
+	md nsfobj\cpu
+	md nsfobj\cpu\nes6502
+	md nsfobj\machine
+	md nsfobj\sndhrdw
+	md nsfobj\msdos
+
+# Dependency data
+include $(NSF_DEP)
+
+# $Log: Makenose.dos,v $
+# Revision 1.1  2003/04/08 20:46:46  ben
+# add new input for NES music file.
+#
+# Revision 1.3  2000/06/26 04:54:10  matt
+# udpated to automatically generate dependencies
+#
+# Revision 1.2  2000/06/19 23:59:33  matt
+# added MMC5/FDS/VRC7
+#
+# Revision 1.1  2000/06/12 01:16:22  matt
+# initial revision
+#
