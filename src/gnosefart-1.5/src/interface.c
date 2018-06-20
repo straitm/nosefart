@@ -111,7 +111,7 @@ create_mainwindow (void)
   gtk_widget_show (label11);
   gtk_box_pack_start (GTK_BOX (track_hbox), label11, FALSE, FALSE, 0);
 
-  spinbutton3_adj = gtk_adjustment_new (1, 1, 255, 1, 10, 10);
+  spinbutton3_adj = gtk_adjustment_new (1, 1, 255, 1, 10, 0);
   spinbutton3 = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton3_adj), 1, 0);
   gtk_widget_show (spinbutton3);
   gtk_box_pack_start (GTK_BOX (track_hbox), spinbutton3, TRUE, TRUE, 0);
@@ -132,7 +132,7 @@ create_mainwindow (void)
   gtk_widget_show (radio_table);
   gtk_box_pack_start (GTK_BOX (main_controls), radio_table, TRUE, TRUE, 0);
 
-  seconds_button_adj = gtk_adjustment_new (60, 1, 86400, 1, 10, 10);
+  seconds_button_adj = gtk_adjustment_new (60, 1, 86400, 1, 10, 0);
   seconds_button = gtk_spin_button_new (GTK_ADJUSTMENT (seconds_button_adj), 1, 0);
   gtk_widget_show (seconds_button);
   gtk_table_attach (GTK_TABLE (radio_table), seconds_button, 1, 2, 1, 2,
@@ -174,7 +174,7 @@ create_mainwindow (void)
   seconds_rbutton_group = gtk_radio_button_get_group (GTK_RADIO_BUTTON (repetitions_rbutton));
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (repetitions_rbutton), TRUE);
 
-  repetitions_button_adj = gtk_adjustment_new (2, 0, 10000, 1, 10, 10);
+  repetitions_button_adj = gtk_adjustment_new (2, 0, 10000, 1, 10, 0);
   repetitions_button = gtk_spin_button_new (GTK_ADJUSTMENT (repetitions_button_adj), 1, 0);
   gtk_widget_show (repetitions_button);
   gtk_table_attach (GTK_TABLE (radio_table), repetitions_button, 1, 2, 0, 1,
@@ -199,7 +199,7 @@ create_mainwindow (void)
   gtk_widget_show (label18);
   gtk_box_pack_start (GTK_BOX (hbox7), label18, FALSE, FALSE, 0);
 
-  spinbutton_mult_adj = gtk_adjustment_new (1, 0.05, 10, 0.05, 1, 1);
+  spinbutton_mult_adj = gtk_adjustment_new (1, 0.05, 10, 0.05, 1, 0);
   spinbutton_mult = gtk_spin_button_new (GTK_ADJUSTMENT (spinbutton_mult_adj), 0.0500000007451, 2);
   gtk_widget_show (spinbutton_mult);
   gtk_box_pack_start (GTK_BOX (hbox7), spinbutton_mult, TRUE, TRUE, 0);
